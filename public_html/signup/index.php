@@ -10,7 +10,8 @@
             $decrypted = trim($decrypted); 
             return $decrypted;
         }
-        if ( decrypt($_COOKIE["mail"],hex2bin($key),hex2bin($iv)) === $_POST['mail']) {
+        
+        if ( decrypt($_COOKIE["mail"],hex2bin($key),hex2bin($iv)) === $_POST['mail'] && isset($_COOKIE["mail"]) && strlen(trim($_POST['mail'])) > 0 ) {
     
             require "../config/conect.php";
             
