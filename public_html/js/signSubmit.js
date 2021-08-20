@@ -1,13 +1,13 @@
+const form = document.getElementsByClassName("form")[0];
+
 function logSubmit(event) {
   if (document.getElementById('signupForm')) {
     const sub = document.getElementById('submit');
     const response = document.getElementById('res');
-    const form = this
-    const email = document.getElementById("mailForm");
-    const hide = document.getElementById("hide");
-    const hidden = document.getElementById("hidden");
+    
     sub.disabled=true;
     response.innerHTML = "<img width='50' height='30' alt='loading' src='../images/home/loading.gif'/>";
+    
     const formData = new FormData(this);
     const entries = formData.entries();
     const data = Object.fromEntries(entries);
@@ -15,6 +15,7 @@ function logSubmit(event) {
     formData.delete('pass');  
     formData.delete('key');
     formData.delete('iv');
+    
     function encrypt(x,z,y){
       var message = x;
       var key = CryptoJS.enc.Hex.parse(z);
@@ -41,12 +42,12 @@ function logSubmit(event) {
       response.innerHTML = res;
       if (res == "Signed up") {
         sub.disabled=false;
+        document.getElementById("check").checked = false;
         form.id = "loginForm"
         form.children[9].value = "log in"
-        email.style.display = "none";
-        hide.disabled = true;
-        hide.type = "hidden";
-        hidden.style.display = "none";
+        document.getElementById("mailForm").style.display = "none";
+        document.getElementById("hide").type = "hidden";
+        document.getElementById("hidden").style.display = "none";
         window.history.pushState('', '', '/');
       }
     }).catch((error) => {
@@ -56,4 +57,4 @@ function logSubmit(event) {
   }
 }
 
-document.getElementsByClassName("form")[0].addEventListener('submit', logSubmit);
+form.addEventListener('submit', logSubmit);
