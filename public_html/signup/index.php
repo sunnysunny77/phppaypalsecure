@@ -22,8 +22,11 @@
                 if (strlen(trim($pass)) > 0) {
                         try {
                             $isp = password_hash(decrypt($pass,hex2bin($_SESSION["key"]),hex2bin($_SESSION["iv"])), PASSWORD_DEFAULT);
-                            $sql = "INSERT INTO login (user, pass) VALUES ('$user','$isp')";
-                            $result = $pdo->query($sql);
+                            $sql = "INSERT INTO login (user, pass) VALUES (:user,:isp)";
+                            $result = $pdo->prepare($sql);
+                            $result->bindValue(':user', $user);
+                            $result->bindValue(':isp', $isp);
+                            $result->execute();
                         } catch (PDOException $e) {
                             if ($e->getCode() == 23000) {
                                 echo json_encode("Error Username Taken");

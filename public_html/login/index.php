@@ -19,8 +19,10 @@
         if (strlen(trim($user)) > 0) {
             if (strlen(trim($pass)) > 0) {
                 try {
-                    $sql = "SELECT * FROM login WHERE user= '$user'";
-                    $result = $pdo->query($sql);
+                    $sql = "SELECT * FROM login WHERE user= :user";
+                    $result = $pdo->prepare($sql);
+                    $result->bindValue(':user', $user);
+                    $result->execute();
                 } catch (PDOException $e) {
                     echo json_encode($e->getMessage());
                     exit();
