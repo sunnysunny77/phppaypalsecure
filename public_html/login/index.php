@@ -32,11 +32,14 @@
                     if (password_verify(decrypt($_SERVER["PHP_AUTH_PW"]), $row["pass"])) {
                         $_SESSION['loggedin'] = true;
                         echo json_encode(true);
+                        exit();
                     } else {
                         echo json_encode("Error Password");
+                        exit();
                     }
                 } else {
                     echo json_encode("Error Username");
+                    exit();
                 }
             } else {
                 echo json_encode("Enter Password");

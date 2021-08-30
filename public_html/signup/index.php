@@ -36,6 +36,7 @@
                             exit();
                         }
                         echo json_encode("Signed up");
+                        exit();
                 } else {
                     echo json_encode("Enter Password");
                 }   
