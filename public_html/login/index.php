@@ -2,8 +2,6 @@
 <?php
     session_start();
     if ($_SESSION['token'] === $_POST['token']) {
-
-        require "../config/conect.php";
         
         function decrypt($encrypted){
             $key = hex2bin($_SESSION["key"]);
@@ -18,6 +16,9 @@
         
         if (strlen(trim($user)) > 0) {
             if (strlen(trim($pass)) > 0) {
+
+                require "../config/conect.php";
+
                 try {
                     $sql = "SELECT * FROM login WHERE user= :user";
                     $result = $pdo->prepare($sql);
