@@ -37,16 +37,15 @@
                             exit();
                         }
                         echo json_encode("Signed up");
-                        exit();
                 } else {
                     echo json_encode("Enter Password");
                 }   
             } else {
                 echo json_encode("Enter Username");
             }
-    
         } else {
             echo json_encode("Please Enter Token");
         }  
     }
+    exit();
 ?>
