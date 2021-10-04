@@ -2,20 +2,20 @@ const form = document.getElementsByClassName("form")[0];
 
 function logSubmit(event) {
   if (document.getElementById('signupForm')) {
-    const sub = document.getElementById('submit');
     const response = document.getElementById('res');
     if (/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/.test(this.user.value)) {
-      response.innerHTML = "Special characters not allowed";
+      response.innerHTML = "No special characters";
       return event.preventDefault();
     }
     if (this.user.value.length > 19) {
-      response.innerHTML = "Maxium user length is 19 characters";
+      response.innerHTML = "Up to 19 characters";
       return event.preventDefault();
     }  
     if (this.pass.value.length > 19) {
-      response.innerHTML = "Maxium password length is 19 characters";
+      response.innerHTML = "Up to 19 characters";
       return event.preventDefault();
-    }   
+    }
+    const sub = document.getElementById('submit');   
     sub.disabled=true;
     response.innerHTML = "<img width='50' height='30' alt='loading' src='../images/home/loading.gif'/>";
     
