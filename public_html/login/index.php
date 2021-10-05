@@ -33,11 +33,14 @@
                     if (password_verify(decrypt($pass), htmlspecialchars($row["pass"], ENT_QUOTES, 'UTF-8'))) {
                         $_SESSION['loggedin'] = true;
                         echo json_encode(true);
+                        exit();
                     } else {
                         echo json_encode("Error Password");
+                        exit();
                     }
                 } else {
                     echo json_encode("Error Username");
+                    exit();
                 }
             } else {
                 echo json_encode("Enter Password");
@@ -46,5 +49,4 @@
             echo json_encode("Enter Username");
         }
     }
-    exit();
 ?>
