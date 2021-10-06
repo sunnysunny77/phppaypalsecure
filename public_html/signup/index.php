@@ -13,8 +13,8 @@
         
         if ( decrypt($_COOKIE["mail"],hex2bin($key),hex2bin($iv)) === $_POST['mail'] && isset($_COOKIE["mail"]) && strlen(trim($_POST['mail'])) > 0 ) {
             
-            $user = htmlspecialchars($_SERVER["PHP_AUTH_USER"], ENT_QUOTES, 'UTF-8');
-            $pass = htmlspecialchars($_SERVER["PHP_AUTH_PW"], ENT_QUOTES, 'UTF-8');
+            $user = $_SERVER["PHP_AUTH_USER"];
+            $pass = $_SERVER["PHP_AUTH_PW"];
             
             if (strlen(trim($user)) > 0) {
                 if (strlen(trim($pass)) > 0) {

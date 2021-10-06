@@ -5,7 +5,7 @@ require "../config/environmentSDK.php";
 
 use PayPalCheckoutSdk\Orders\OrdersCaptureRequest;
 
-$request = new OrdersCaptureRequest(htmlspecialchars($_POST["orderID"], ENT_QUOTES, 'UTF-8'));
+$request = new OrdersCaptureRequest($_POST["orderID"]);
 $request->prefer('return=representation');
 
 if ($_SESSION['token'] === $_POST["token"]) {

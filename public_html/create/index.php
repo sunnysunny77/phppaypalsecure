@@ -5,8 +5,8 @@ require "../config/environmentSDK.php";
 
 use PayPalCheckoutSdk\Orders\OrdersCreateRequest;
    
-$value = htmlspecialchars($_POST["quantity"], ENT_QUOTES, 'UTF-8') * 20;
-$quantity = htmlspecialchars($_POST["quantity"], ENT_QUOTES, 'UTF-8');
+$value = $_POST["quantity"] * 20;
+$quantity = $_POST["quantity"];
 
 $request = new OrdersCreateRequest();
 $request->prefer('return=representation');

@@ -11,8 +11,8 @@
             return $decrypted;
         }
 
-        $user = htmlspecialchars($_SERVER["PHP_AUTH_USER"], ENT_QUOTES, 'UTF-8');
-        $pass = htmlspecialchars($_SERVER["PHP_AUTH_PW"], ENT_QUOTES, 'UTF-8');
+        $user = $_SERVER["PHP_AUTH_USER"];
+        $pass = $_SERVER["PHP_AUTH_PW"];
         
         if (strlen(trim($user)) > 0) {
             if (strlen(trim($pass)) > 0) {
@@ -30,7 +30,7 @@
                 }
                 $row = $result->fetch();
                 if ($row != false) {
-                    if (password_verify(decrypt($pass), htmlspecialchars($row["pass"], ENT_QUOTES, 'UTF-8'))) {
+                    if (password_verify(decrypt($pass), $row["pass"])) {
                         $_SESSION['loggedin'] = true;
                         echo json_encode(true);
                         exit();

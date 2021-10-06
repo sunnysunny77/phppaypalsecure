@@ -18,7 +18,7 @@ if ($_SESSION['token'] === $_POST['token']) {
     </body>
     </html>
     ";
-    $mail = mail(htmlspecialchars($_POST["mail"], ENT_QUOTES, 'UTF-8'),"Sign up Token", $message, $headers);
+    $mail = mail($_POST["mail"],"Sign up Token", $message, $headers);
     if (!$mail) {
         echo json_encode(error_get_last()['message']);
     } else {
