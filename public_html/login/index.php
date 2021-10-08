@@ -20,7 +20,7 @@
                 require "../config/conect.php";
 
                 try {
-                    $sql = "SELECT * FROM login WHERE user= :user";
+                    $sql = "SELECT pass FROM login WHERE user= :user";
                     $result = $pdo->prepare($sql);
                     $result->bindValue(':user', $user);
                     $result->execute();
