@@ -3,15 +3,14 @@
     session_start();
     if ($_SESSION['token'] === $_POST['token']) {
         
-        require "../../keys.php";
-
-        function decrypt($encrypted,$key, $iv ){
-            $decrypted = openssl_decrypt($encrypted, 'AES-128-CBC', $key, OPENSSL_ZERO_PADDING, $iv); 
+        function decrypt($encrypted){
+            require "../../keys.php";
+            $decrypted = openssl_decrypt($encrypted, 'AES-128-CBC', hex2bin($key), OPENSSL_ZERO_PADDING, hex2bin($iv)); 
             $decrypted = trim($decrypted); 
             return $decrypted;
         }
         
-        if ( decrypt($_COOKIE["mail"],hex2bin($key),hex2bin($iv)) === $_POST['mail'] && isset($_COOKIE["mail"]) && strlen(trim($_POST['mail'])) > 0 ) {
+        if ( decrypt($_COOKIE["mail"]) === $_POST['mail'] && !empty($_POST['mail']) && isset($_COOKIE["mail"])) {
             
             $user = $_SERVER["PHP_AUTH_USER"];
             $pass = $_SERVER["PHP_AUTH_PW"];
@@ -22,7 +21,7 @@
                     require "../config/conect.php";
                     
                         try {
-                            $isp = password_hash(decrypt($pass,hex2bin($_SESSION["key"]),hex2bin($_SESSION["iv"])), PASSWORD_DEFAULT);
+                            $isp = password_hash(decrypt($pass), PASSWORD_DEFAULT);
                             $sql = "INSERT INTO login (user, pass) VALUES (:user,:isp)";
                             $result = $pdo->prepare($sql);
                             $result->bindValue(':user', $user);

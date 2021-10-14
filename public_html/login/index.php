@@ -4,9 +4,8 @@
     if ($_SESSION['token'] === $_POST['token']) {
         
         function decrypt($encrypted){
-            $key = hex2bin($_SESSION["key"]);
-            $iv =  hex2bin($_SESSION["iv"]);
-            $decrypted = openssl_decrypt($encrypted, 'AES-128-CBC', $key, OPENSSL_ZERO_PADDING, $iv); 
+            require "../../keys.php";
+            $decrypted = openssl_decrypt($encrypted, 'AES-128-CBC', hex2bin($key), OPENSSL_ZERO_PADDING, hex2bin($iv)); 
             $decrypted = trim($decrypted);
             return $decrypted;
         }
@@ -14,8 +13,8 @@
         $user = $_SERVER["PHP_AUTH_USER"];
         $pass = $_SERVER["PHP_AUTH_PW"];
         
-        if (strlen(trim($user)) > 0) {
-            if (strlen(trim($pass)) > 0) {
+        if (!empty($user)) {
+            if (!empty($pass)) {
 
                 require "../config/conect.php";
 

@@ -14,7 +14,7 @@ if ($_SESSION['token'] === $_POST['token']) {
       <title>Sign up Token</title>
     </head>
     <body>
-    <a href =\"https://$host?token=$token\">Pleae use this link to sign up</a>
+    <a href =\"https://$host?token=$token\">Pleae use this link in the same browser to sign up.</a>
     </body>
     </html>
     ";
