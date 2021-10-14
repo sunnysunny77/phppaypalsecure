@@ -1,5 +1,5 @@
 <?php
-require "../../keys.php"; 
+require "../../db.key.php"; 
 try
 {
   $pdo = new PDO('mysql:host=localhost;dbname=secure', 'root', $db);

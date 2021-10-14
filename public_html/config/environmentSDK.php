@@ -1,5 +1,6 @@
 <?php
-require "../../keys.php"; 
+require "../../ppi.key.php"; 
+require "../../pps.key.php"; 
 require __DIR__ . "/../vendor/autoload.php";
 
 use PayPalCheckoutSdk\Core\PayPalHttpClient;
