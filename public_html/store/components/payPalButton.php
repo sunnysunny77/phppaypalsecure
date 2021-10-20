@@ -1,6 +1,7 @@
 <?php 
 session_start(); 
 require "../../ppi.key.php";
+include_once  '../config/helpers.php'
 ?>
 
 <img width="200" height="200" atl="goods" src="../../images/store/goods.jpg" />
@@ -15,7 +16,7 @@ require "../../ppi.key.php";
 
     <script src="../../js/count.js" nonce="xyz123"></script>
 
-<script src="<?php echo "https://www.paypal.com/sdk/js?client-id=$ppId&currency=AUD"?>" nonce="xyz123" data-csp-nonce="xyz123"></script>  
+<script src="<?php htmlout("https://www.paypal.com/sdk/js?client-id=$ppId&currency=AUD")?>" nonce="xyz123" data-csp-nonce="xyz123"></script>  
 <div id="paypal-button-container"></div>
 <script nonce="xyz123">
 

@@ -1,9 +1,10 @@
+<?php include_once  './config/helpers.php';?>
 <form class="form">
-<input type="hidden" name="iv" value="<?php echo $iv; ?>" />
-<input type="hidden" name="key" value="<?php echo $key; ?>" />
-<input type="hidden" name="token" value="<?php echo $token; ?>" />
+<input type="hidden" name="iv" value="<?php htmlout($iv); ?>" />
+<input type="hidden" name="key" value="<?php htmlout($key); ?>" />
+<input type="hidden" name="token" value="<?php htmlout($token); ?>" />
 <label id="hidden" for="hide">Token</label>
-<input type="hidden" name="mail" id="hide" value="<?php echo $_GET["token"] ?>" readonly />
+<input type="hidden" name="mail" id="hide" value="<?php htmlout($_GET["token"]) ?>" readonly />
 <label for="user">User</label>
 <input type="text" id="user" name="user" autocomplete="on" />
 <label for="pass">Password</label>
