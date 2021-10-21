@@ -2,6 +2,11 @@
 <?php
     session_start();
     if ($_SESSION['token'] === $_POST['token']) {
+
+        if ($_SESSION['rand']) {
+            sleep(rand(2, 4));
+        }
+        $_SESSION['rand'] = true;
         
         function decrypt($encrypted){
             require "../../keys.php";

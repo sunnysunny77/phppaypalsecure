@@ -1,2 +1,2 @@
-User: Dan
-Pass: sec009ure
+User: Danielshopper
+Pass: passwordA1

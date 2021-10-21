@@ -2,15 +2,27 @@ function logSubmit(event) {
   if (document.getElementById('loginForm')) {
     const response = document.getElementById('res');
     if (/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/.test(this.user.value)) {
-      response.innerHTML = "No special characters";
+      response.innerHTML = "User accepts no special characters";
       return event.preventDefault();
     }
-    if (this.user.value.length > 19) {
-      response.innerHTML = "Up to 19 characters";
+    if (/^[^0-9]*$/.test(this.pass.value)) {
+      response.innerHTML = "Pass accepts one # ";
+      return event.preventDefault();
+    }
+    if (/^[^A-Z]*$/.test(this.pass.value)) {
+      response.innerHTML = "Pass accepts one capital";
+      return event.preventDefault();
+    }
+    if (/^[^a-z]*$/.test(this.pass.value)) {
+      response.innerHTML = "Pass accepts one lowercase";
+      return event.preventDefault();
+    }
+    if (this.user.value.length > 19 || this.user.value.length  < 8) {
+      response.innerHTML = "User accepts 8 to 19 characters";
       return event.preventDefault();
     }  
-    if (this.pass.value.length > 19) {
-      response.innerHTML = "Up to 19 characters";
+    if (this.pass.value.length > 19 || this.pass.value.length  < 8) {
+      response.innerHTML = "Pass accepts8 to 19 characters";
       return event.preventDefault();
     }
     const sub = document.getElementById('submit');  
