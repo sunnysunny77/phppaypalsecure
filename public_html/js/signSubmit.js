@@ -7,15 +7,15 @@ function logSubmit(event) {
       response.innerHTML = "User accepts no special characters";
       return event.preventDefault();
     }
-    if (/^[^0-9]*$/.test(this.pass.value)) {
+    if (/^[^0-9]+$/.test(this.pass.value)) {
       response.innerHTML = "Pass accepts one # ";
       return event.preventDefault();
     }
-    if (/^[^A-Z]*$/.test(this.pass.value)) {
+    if (/^[^A-Z]+$/.test(this.pass.value)) {
       response.innerHTML = "Pass accepts one capital";
       return event.preventDefault();
     }
-    if (/^[^a-z]*$/.test(this.pass.value)) {
+    if (/^[^a-z]+$/.test(this.pass.value)) {
       response.innerHTML = "Pass accepts one lowercase";
       return event.preventDefault();
     }
