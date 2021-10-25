@@ -10,7 +10,7 @@
         
         function decrypt($encrypted){
             require "../../keys.php";
-            $decrypted = openssl_decrypt($encrypted, 'AES-128-CBC', hex2bin($key), OPENSSL_ZERO_PADDING, hex2bin($_SESSION['iv'])); 
+            $decrypted = openssl_decrypt($encrypted, 'AES-128-CBC', hex2bin($key), OPENSSL_ZERO_PADDING, hex2bin($iv)); 
             $decrypted = trim($decrypted); 
             return $decrypted;
         }
