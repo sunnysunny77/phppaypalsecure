@@ -1,9 +1,12 @@
 function mail () {
-    const formData = new FormData(this);
     const sub = document.getElementById('submitmail');
     const response = document.getElementById('res');  
     sub.disabled=true;
     response.innerHTML = "<img width='50' height='30' alt='loading' src='../images/home/loading.gif'/>";
+    const formData = new FormData(this);
+    const entries = formData.entries();
+    const data = Object.fromEntries(entries);
+    formData.set("email", btoa(data.email));
     fetch('./mail/index.php', {
         method: 'post', 
         body: formData,
