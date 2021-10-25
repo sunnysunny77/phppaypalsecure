@@ -10,7 +10,7 @@
         
         function decrypt($encrypted){
             require "../../keys.php";
-            $decrypted = openssl_decrypt($encrypted, 'AES-128-CBC', hex2bin($key), OPENSSL_ZERO_PADDING, hex2bin($iv)); 
+            $decrypted = openssl_decrypt($encrypted, 'AES-128-CBC', hex2bin($key), OPENSSL_ZERO_PADDING, hex2bin($_SESSION['iv'])); 
             $decrypted = trim($decrypted); 
             return $decrypted;
         }
@@ -26,7 +26,7 @@
                     require "../config/conect.php";
                     
                         try {
-                            $isp = password_hash(decrypt($pass), PASSWORD_DEFAULT);
+                            $isp = password_hash($pass, PASSWORD_DEFAULT);
                             $sql = "INSERT INTO login (user, pass) VALUES (:user,:isp)";
                             $result = $pdo->prepare($sql);
                             $result->bindValue(':user', $user);

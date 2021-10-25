@@ -10,7 +10,7 @@ if (!urlParams.has("token")) {
     formClass.style.display = "block";
     email.style.display = "none";
     formClass.id = "loginForm"
-    formClass.children[9].value = "log in"
+    formClass.children[7].value = "log in"
     hide.type = "hidden";
     hidden.style.display = "none";
 } else {
@@ -18,7 +18,7 @@ if (!urlParams.has("token")) {
     formClass.style.display = "block";
     email.style.display = "none";
     formClass.id = "signupForm"
-    formClass.children[9].value = "Sign up"
+    formClass.children[7].value = "Sign up"
     hide.type = "text";
     hidden.style.display = "block";
 }
@@ -31,7 +31,7 @@ function toggle() {
         formClass.style.display = "block";
         email.style.display = "none";
         formClass.id = "loginForm"
-        formClass.children[9].value = "log in"
+        formClass.children[7].value = "log in"
         hide.type = "hidden";
         hidden.style.display = "none";
     }

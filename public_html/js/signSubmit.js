@@ -35,26 +35,12 @@ function logSubmit(event) {
     const entries = formData.entries();
     const data = Object.fromEntries(entries);
     formData.delete('user');
-    formData.delete('pass');  
-    formData.delete('key');
-    formData.delete('iv');
+    formData.delete('pass'); 
     
-    function encrypt(x,z,y){
-      var message = x;
-      var key = CryptoJS.enc.Hex.parse(z);
-      var iv = CryptoJS.enc.Hex.parse(y);
-      var encrypted = CryptoJS.AES.encrypt(message, key, {
-          iv,
-          padding: CryptoJS.pad.ZeroPadding,
-      });
-      return encrypted.toString();
-    }
-    const enc = encrypt(data.pass,data.key,data.iv);
-  
     fetch('./signup/index.php', {
       method: 'post', 
       headers: new Headers({
-        'Authorization': 'Basic ' + btoa(data.user + ":" + enc),
+        'Authorization': 'Basic ' + btoa(data.user + ":" + data.pass),
       }),
       body: formData,
     }
@@ -67,7 +53,7 @@ function logSubmit(event) {
         sub.disabled=false;
         document.getElementById("check").checked = false;
         form.id = "loginForm"
-        form.children[9].value = "log in"
+        form.children[7].value = "log in"
         document.getElementById("mailForm").style.display = "none";
         document.getElementById("hide").type = "hidden";
         document.getElementById("hidden").style.display = "none";

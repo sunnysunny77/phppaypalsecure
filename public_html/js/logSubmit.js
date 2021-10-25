@@ -34,24 +34,11 @@ function logSubmit(event) {
     formData.delete('user');
     formData.delete('mail');
     formData.delete('pass');  
-    formData.delete('key');
-    formData.delete('iv');
-    function encrypt(x,z,y){
-      var message = x;
-      var key = CryptoJS.enc.Hex.parse(z);
-      var iv = CryptoJS.enc.Hex.parse(y);
-      var encrypted = CryptoJS.AES.encrypt(message, key, {
-          iv,
-          padding: CryptoJS.pad.ZeroPadding,
-      });
-      return encrypted.toString();
-    }
-    const enc = encrypt(data.pass,data.key,data.iv);
-  
+    
     fetch('./login/index.php', {
       method: 'post', 
       headers: new Headers({
-        'Authorization': 'Basic ' + btoa(data.user + ":" + enc),
+        'Authorization': 'Basic ' + btoa(data.user + ":" + data.pass),
       }),
       body: formData,
     }

@@ -8,13 +8,6 @@
         }
         $_SESSION['rand'] = true;
         
-        function decrypt($encrypted){
-            require "../../keys.php";
-            $decrypted = openssl_decrypt($encrypted, 'AES-128-CBC', hex2bin($key), OPENSSL_ZERO_PADDING, hex2bin($iv)); 
-            $decrypted = trim($decrypted);
-            return $decrypted;
-        }
-
         $user = $_SERVER["PHP_AUTH_USER"];
         $pass = $_SERVER["PHP_AUTH_PW"];
         
@@ -34,7 +27,7 @@
                 }
                 $row = $result->fetch();
                 if ($row != false) {
-                    if (password_verify(decrypt($pass), $row["pass"])) {
+                    if (password_verify($pass, $row["pass"])) {
                         $_SESSION['loggedin'] = true;
                         echo json_encode(true);
                         exit();
