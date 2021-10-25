@@ -15,7 +15,7 @@
             return $decrypted;
         }
         
-        if ( decrypt($_COOKIE["mail"]) == $_POST['mail'] && !empty($_POST['mail']) && isset($_COOKIE["mail"])) {
+        if ( decrypt($_COOKIE["mail"]) === $_POST['mail'] && !empty($_POST['mail']) && isset($_COOKIE["mail"])) {
             
             $user = $_SERVER["PHP_AUTH_USER"];
             $pass = $_SERVER["PHP_AUTH_PW"];
