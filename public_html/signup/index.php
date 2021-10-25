@@ -20,8 +20,8 @@
             $user = $_SERVER["PHP_AUTH_USER"];
             $pass = $_SERVER["PHP_AUTH_PW"];
             
-            if (strlen(trim($user)) > 0) {
-                if (strlen(trim($pass)) > 0) {
+            if (!empty($user)) {
+                if (!empty($pass)) {
 
                     require "../config/conect.php";
                     
