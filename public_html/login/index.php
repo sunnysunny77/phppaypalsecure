@@ -3,10 +3,10 @@
     session_start();
     if ($_SESSION['token'] === $_POST['token']) {
 
-        if ($_SESSION['rand']) {
-            sleep(rand(2, 4));
+        if ($_SESSION['randin']) {
+            sleep(rand(1, 5));
         }
-        $_SESSION['rand'] = true;
+        $_SESSION['randin'] = true;
         
         $user = $_SERVER["PHP_AUTH_USER"];
         $pass = $_SERVER["PHP_AUTH_PW"];

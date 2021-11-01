@@ -2,10 +2,10 @@
 <?php
 session_start();
 if ($_SESSION['token'] === $_POST['token']) {
-    if ($_SESSION['rand']) {
-        sleep(rand(2, 4));
+    if ($_SESSION['randm']) {
+        sleep(rand(1, 5));
     }
-    $_SESSION['rand'] = true;
+    $_SESSION['randm'] = true;
     require "../../keys.php";
     $host = $_SERVER['HTTP_HOST'];
     $token = $_SESSION['mail'];
