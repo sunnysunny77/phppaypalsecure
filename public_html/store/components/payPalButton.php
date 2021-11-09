@@ -1,6 +1,6 @@
 <?php 
 session_start(); 
-require "../../ppi.key.php";
+
 include_once  '../config/helpers.php'
 ?>
 
@@ -16,7 +16,7 @@ include_once  '../config/helpers.php'
 
     <script src="../../js/count.js" nonce="xyz123"></script>
 
-<script src="<?php htmlout("https://www.paypal.com/sdk/js?client-id=$ppId&currency=AUD")?>" nonce="xyz123" data-csp-nonce="xyz123"></script>  
+<script src="<?php htmlout("https://www.paypal.com/sdk/js?client-id=AQfx3wVwJhh2mBla2huypFHOz47rEzTz9ituchDf8ue2tl-2JtemAjSzGq5MSUXUBAysA8kmHe6Be6m1&currency=AUD")?>" nonce="xyz123" data-csp-nonce="xyz123"></script>  
 <div id="paypal-button-container"></div>
 <script nonce="xyz123">
 

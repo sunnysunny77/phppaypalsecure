@@ -6,10 +6,10 @@ if ($_SESSION['token'] === $_POST['token']) {
         sleep(rand(1, 5));
     }
     $_SESSION['randm'] = true;
-    require "../../keys.php";
+    
     $host = $_SERVER['HTTP_HOST'];
     $token = $_SESSION['mail'];
-    $enc = openssl_encrypt	 ($token, 'AES-128-CBC',hex2bin($key),OPENSSL_ZERO_PADDING,hex2bin($iv));
+    $enc = openssl_encrypt	 ($token, 'AES-128-CBC',hex2bin("0123456789abcdef0123456789abcdef"),OPENSSL_ZERO_PADDING,hex2bin("0a415d193ce0be98598eac6620fa9b26"));
     setcookie('mail', $enc, 0, '/', $host, true, true);
     $headers = 'Content-type: text/html; charset=utf-8';
     $message = "

@@ -9,8 +9,8 @@
         $_SESSION['randup'] = true;
         
         function decrypt($encrypted){
-            require "../../keys.php";
-            $decrypted = openssl_decrypt($encrypted, 'AES-128-CBC', hex2bin($key), OPENSSL_ZERO_PADDING, hex2bin($iv)); 
+    
+            $decrypted = openssl_decrypt($encrypted, 'AES-128-CBC', hex2bin("0123456789abcdef0123456789abcdef"), OPENSSL_ZERO_PADDING, hex2bin("0a415d193ce0be98598eac6620fa9b26")); 
             $decrypted = trim($decrypted); 
             return $decrypted;
         }

@@ -1,8 +1,7 @@
-<?php
-require "../../db.key.php"; 
+<?php 
 try
 {
-  $pdo = new PDO('mysql:host=localhost;dbname=secure', 'root', $db);
+  $pdo = new PDO('mysql:host=localhost;dbname=secure', 'root', "");
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   $pdo->exec('SET NAMES "utf8"');
 }
