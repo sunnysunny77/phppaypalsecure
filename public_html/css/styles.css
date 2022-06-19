@@ -2,7 +2,8 @@
 /* Template */
 
 body {
-  margin: 0;
+  margin: auto;
+  max-width: 1920px;
   font-family: Arial, sans-serif;
 }
 
@@ -72,7 +73,7 @@ main {
   background-color: lightblue;
   color: black;
   padding: 7.5%;
-  min-height: 63vh;
+  min-height: 70.2vh;
 }
 
 footer ul:nth-child(2) {
@@ -290,5 +291,11 @@ input:checked + .slider:before {
     }
   #approved {
     width: unset;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  body {
+    box-shadow: 1px 0 grey, -1px 0 grey;
   }
 }
