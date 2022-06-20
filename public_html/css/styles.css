@@ -294,7 +294,7 @@ input:checked + .slider:before {
   }
 }
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1921px) {
   body {
     box-shadow: 1px 0 grey, -1px 0 grey;
   }
