@@ -13,7 +13,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(32, 178, 170,0.5);
+  background-color: rgba(112, 128, 144,0.65);
   background-blend-mode: screen;
   border-top: solid 1px lightgrey;
 }
@@ -218,6 +218,7 @@ input:checked + .slider:before {
 .up, .down {
   color: brown;
   font-size: xx-large;
+  width: 19px;
 }
 
 #approved {
