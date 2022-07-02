@@ -13,7 +13,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(112, 128, 144,0.65);
+  background-color: rgba(112, 128, 144, 0.65);
   background-blend-mode: screen;
   border-top: solid 1px lightgrey;
 }
@@ -117,11 +117,11 @@ input {
 }
 
 #home img {
-    display: block;
-    margin: auto 20% auto auto;
+  display: block;
+  margin: auto 20% auto auto;
 }
 
-#mailForm  {
+#mailForm {
   display: none;
 }
 
@@ -138,7 +138,7 @@ input {
   height: 34px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -168,15 +168,15 @@ input {
   transition: .4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: #2196F3;
 }
 
-input:focus + .slider {
+input:focus+.slider {
   box-shadow: 0 0 1px #2196F3;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
@@ -185,7 +185,7 @@ input:checked + .slider:before {
 /* store */
 
 #paypal-button-container {
-    text-align: center;
+  text-align: center;
 }
 
 #store a {
@@ -215,7 +215,8 @@ input:checked + .slider:before {
   text-align: center;
 }
 
-.up, .down {
+.up,
+.down {
   color: brown;
   font-size: xx-large;
   width: 19px;
@@ -227,14 +228,15 @@ input:checked + .slider:before {
   text-align: center;
   word-wrap: break-word;
   width: 730px;
-  border-width: 0px; 
-  border-style:solid;
+  border-width: 0px;
+  border-style: solid;
   border: none;
   box-sizing: border-box;
   padding: 20px;
 }
 
-#approved h2 , #approved h3 {
+#approved h2,
+#approved h3 {
   color: black;
   margin: 0;
   text-align: left;
@@ -242,37 +244,42 @@ input:checked + .slider:before {
 
 /* captcha */
 
-.capt{
-	background-color: transparent;
-  height:133px;
+.capt {
+  background-color: transparent;
+  height: 133px;
 }
 
-#mainCaptcha{
-	position: relative;
-	left : 10px;
-	top: 5px;
+#mainCaptcha {
+  position: relative;
+  left: 10px;
+  top: 5px;
   font-family: 'Courier New', monospace;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-#refresh{
-	position:relative;
-	left:15px;
-	width:15px;
-	height:15px;
-	bottom:65px;
+#refresh {
+  position: relative;
+  left: 15px;
+  width: 15px;
+  height: 15px;
+  bottom: 65px;
 }
 
 #Button1 {
   background-color: transparent;
 }
 
-#txtInput, #Button1{
-	position: relative;
-	left:10px;
-	bottom: 40px;
+#txtInput,
+#Button1 {
+  position: relative;
+  left: 10px;
+  bottom: 40px;
 }
 
-#home input[type="button"] { 
+#home input[type="button"] {
   border: 1px solid black;
   outline: none;
 }
@@ -288,8 +295,9 @@ input:checked + .slider:before {
 
 @media only Screen and (max-width: 992px) {
   #home img {
-        margin: auto;
-    }
+    margin: auto;
+  }
+
   #approved {
     width: unset;
   }

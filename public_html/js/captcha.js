@@ -45,6 +45,7 @@ function validCaptcha(){
 function removeSpaces(string){
   return string.split(' ').join('');
 }
+document.getElementById('txtInput').addEventListener('paste', e => e.preventDefault());
 document.getElementById("refresh").addEventListener('click', captcha);
 document.getElementById("Button1").addEventListener('click', validCaptcha);
 window.onload = captcha();
